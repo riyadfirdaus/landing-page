@@ -7,24 +7,41 @@
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./typography.css" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
+    <script src="./main.js" defer></script>
   </head>
   <body>
-    <header>
-      <span id="logo" class="color-primary">Broadsport</span>
-      <nav>
-        <ul>
-          <li>Careers</li>
-          <li>Blog</li>
-          <li>Press</li>
-          <li>Advertising</li>
+    <header id="header">
+      <div id="navbar" class="shadow-sm">
+        <span id="logo" class="color-primary">Broadsport</span>
+        <nav id="navigation" class="hidden">
+          <ul>
+            <li><a href="">Careers</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Press</a></li>
+            <li><a href="">Advertising</a></li>
+          </ul>
+        </nav>
+        <span class="right hidden" id="header-button"
+          ><button class="primary">Request a Demo</button></span
+        >
+        <div id="button-container">
+          <button id="sidebar-btn" class="material-symbols-outlined">
+            menu
+          </button>
+        </div>
+      </div>
+      <div id="sidebar" class="hidden">
+        <ul class="bg-primary shadow-md">
+          <li><button class="primary">Careers</button></li>
+          <li><button class="primary">Blog</button></li>
+          <li><button class="primary">Press</button></li>
+          <li><button class="primary">Advertising</button></li>
         </ul>
-      </nav>
-      <span class="right"><button class="primary">Request a Demo</button></span>
+      </div>
     </header>
     <main>
       <article id="hero" class="flex-column">
@@ -62,7 +79,7 @@
         <div id="ad-products-content" class="flex-row">
           <img src="./assets/sports3.jpg" alt="" class="shadow-md" />
           <aside id="product-card-container" class="flex-column">
-            <div class="product-card bg-primary shadow-md">
+            <div class="product-card bg-primary shadow-md scale-transform">
               <h3>In Stream</h3>
               <p>
                 Leverage peak moments and lulis in action during game play with
@@ -78,7 +95,7 @@
                 >north_east</span
               >
             </div>
-            <div class="product-card shadow-md">
+            <div class="product-card shadow-md scale-transform">
               <h3>In Break</h3>
               <p>
                 Leverage peak moments and lulis in action during game play with
@@ -114,7 +131,7 @@
             <button type="submit" formaction="">Request a Demo</button>
           </form>
         </div>
-        <aside class="flex-column image-container">
+        <aside class="flex-column image-container scale-transform">
           <img src="assets/profile-photo.png" alt="" class="shadow-md" />
           <div class="img-text">
             <p class="name">Riyad Firdaus</p>
@@ -123,6 +140,6 @@
         </aside>
       </article>
     </main>
-    <footer></footer>
+    <footer class="flex-row shadow-md">Made by Riyad Firdaus &reg;</footer>
   </body>
 </html>

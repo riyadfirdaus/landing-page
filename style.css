@@ -4,13 +4,27 @@
   --color-primary: #2982ff;
   --color-bg-1: #f4f8ff;
   font-family: "Montserrat", Georgia, Times, "Times New Roman", serif;
+  transition: all 0.2s;
+}
+
+.hidden {
+  display: none !important;
+}
+.scale-transform {
+  transition: all 0.2s;
+}
+
+.scale-transform:hover {
+  transform: scale(1.05);
 }
 
 .flex-row {
   display: flex;
   /* flex-flow: row wrap; */
 }
-
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
@@ -40,6 +54,12 @@ button.primary {
   font-weight: 600;
   border: none;
 }
+button {
+  transition: all 0.2s;
+}
+button:hover {
+  transform: scale(1.05);
+}
 
 /* MAIN */
 main {
@@ -47,9 +67,16 @@ main {
 }
 
 /* HEADER SECTION */
-body > header {
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+#navbar {
+  background-color: white;
   display: flex;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -68,6 +95,21 @@ header ul {
   gap: 1rem;
 }
 
+#navigation ul li:hover {
+  transform: translateY(-2px);
+}
+
+li a {
+  color: inherit;
+  text-decoration: none;
+}
+li a:hover {
+  color: var(--color-primary);
+}
+ul li {
+  transition: all 0.2s;
+}
+
 /* HERO */
 
 #hero > header {
@@ -75,7 +117,7 @@ header ul {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 20px 180px;
+  padding: 64px 180px 32px;
 }
 
 #hero p {
@@ -148,14 +190,13 @@ header ul {
   gap: 2rem;
 }
 #ad-products-content > * {
-  flex-basis: 300px;
   flex-grow: 1;
   border-radius: 12px;
   gap: 2rem;
 }
 
 #ad-products-content > img {
-  width: 10px;
+  max-width: 50%;
   height: auto;
   object-fit: cover;
 }
@@ -192,16 +233,16 @@ header ul {
   bottom: 0;
 }
 
-/* Contact Us */
+/* CONTACT US */
 
 #contact-us {
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 2rem 3rem;
   width: 100%;
   min-height: 300px;
   border-radius: 12px;
   margin: 2rem 0;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: space-between;
 }
 #contact-us .subtitle {
@@ -231,6 +272,7 @@ header ul {
 .image-container .img-text {
   margin: 1rem;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -270,4 +312,117 @@ form button {
   color: white;
   padding: 0.8rem 1.2rem;
   border-radius: 8px;
+}
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #0057ce;
+  color: white;
+}
+
+/* SIDEBAR */
+#button-container {
+  position: absolute;
+  padding-right: inherit;
+  right: 0;
+  transition: all 0.2s;
+}
+#sidebar-btn:hover {
+  color: var(--color-primary);
+}
+#sidebar-btn {
+  background-color: transparent;
+  border: none;
+}
+#sidebar {
+  transition: all 0.2s;
+  top: 1rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar ul {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  transition: all 0.1s;
+  border-radius: 0 0 12px 12px;
+}
+
+#sidebar button {
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+}
+
+#sidebar button:hover {
+  background-color: #185ec0;
+}
+
+@media screen and (max-width: 960px) {
+  main {
+    padding: 0 4rem;
+  }
+  #ad-product-content > * {
+    width: 100% !important;
+  }
+  #ad-products-content {
+    display: flex;
+    flex-direction: column;
+  }
+  #ad-products-content img {
+    max-width: 100%;
+  }
+  #hero header {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #navbar {
+    padding: 1rem;
+  }
+  main {
+    padding: 0 2rem;
+  }
+  form {
+    justify-content: center;
+    align-items: center;
+  }
+  form #email {
+    width: 100%;
+    max-width: none;
+  }
+  #ad-products {
+    padding: 1rem 2rem;
+  }
+  .item-1 {
+    grid-column: 1 / span 3;
+    grid-row: 1 / last-line;
+  }
+  .item-5 {
+    grid-column: 1 / last-line;
+  }
+  #contact-us {
+    flex-direction: column-reverse;
+  }
+  #hero header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #navbar {
+    justify-content: center;
+  }
 }
